@@ -2,7 +2,9 @@ body{
     padding:0;
     margin:0;
     font-family:Helvetica;
-
+    overflow-x:auto;
+    overflow-y:auto;
+    height: 100vh;
 }
 /*===HEADER===*/
 #header{
@@ -47,14 +49,16 @@ background-repeat: repeat-x;
     padding-top: 12px;
 }
 
-/*===MAIN CONTENT ON HOME SCREENS===*/
 #main-home{
-   margin-top: 35px;
- }
+   margin-top: 120px; /* 80px header + 40px tabs-top */
+   margin-bottom: 60px; /* Increased to prevent content from being hidden behind bottom tabs */
+   min-height: calc(100vh - 160px);
+   box-sizing: border-box;
+}
+
 
 /*===BOTTOM TABS===*/
 #tabs-bottom{
-    position: fixed;
     bottom: 0px;
     left: 0px;
     z-index: 500;
@@ -72,21 +76,38 @@ background-repeat: repeat-x;
     text-align: center;
     text-decoration: none;
     padding-top: 12px;
+    background: none;
+    position: static;
 }
 
-/*===ANIMAL HTML PAGE===*/
+
 #main{
-    margin-top: 119px;
+    margin-top: 120px; /* 80px header + 40px tabs-top */
+    margin-bottom: 60px; /* Increased to prevent content from being hidden behind bottom tabs */
     background: url('images/map-blur.png');
     background-repeat: repeat-y;
+    min-height: calc(100vh - 160px); /* Adjust for header + footer height */
+    overflow-y: auto;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+
 }
+
 
 #content{
     padding-top: 1px;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
 }
+/*===INFO BOXES===*/
 
 a.info-box{
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
     text-decoration: none;
     background: rgba(255 ,255, 255, .8);
     width: 90%;
@@ -99,45 +120,63 @@ a.info-box{
 
 .info-box img{
     height: 70px;
-    margin: 10px;
+    width: 70px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
     float: left;
 }
 
 .info-box h3{
-    padding: 0px;
+    padding-left: 10px;
     margin-bottom: 0px;
     width: 90%;
     color: #572800;
 }
 .info-box p{
     padding: 0px;
-    margin: 0px;
+    margin-left: 10px;
     width: 90%;
     color: #131313;
 }
 
 .info-box img.right{
-    float:right;
+    float: right;
     margin-top: 25px;
     height: 40px;
+    margin-top: 25px;
+    margin-right: 10px;
+    width: 40px;
 }
 
 /*===ELEPHANT PAGE CSS===*/
 #info-box-full{
     background-color: rgba(255, 255, 255, .8);
-    width: 90%;
+    max-width: 40%;
+    max-height: 100px;
     display: block;
     margin: auto;
-    padding: 10px;
-    margin-top: 12px;
+    padding: 1px;
+    margin-top: 1px;
 }
 
 #info-box-full img{
     width: 100%;
 }
 #info-box-full h3{
-   text-align: center;
+   text-align: left;
+   color: black;
+   font-weight: 200;
+  
 }
+
+#info-box-full p{
+   text-align: left;
+   color: black;
+   font-weight: 200;
+
+}
+
 
 /*===WEATHER PAGE STYLING===*/
 img.info-box-weather-icon{
